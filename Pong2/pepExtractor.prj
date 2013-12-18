@@ -1,0 +1,3 @@
+work	"commonPak.vhd"
+work	"paddle.vhd"
+work	"pong_top.vhd"

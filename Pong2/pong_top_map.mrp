@@ -1,0 +1,881 @@
+Release 14.5 Map P.58f (nt64)
+Xilinx Mapping Report File for Design 'pong_top'
+
+Design Information
+------------------
+Command Line   : map -filter "D:/Libraries/EE/FPGA/Basys
+2/Pong2/iseconfig/filter.filter" -intstyle ise -p xc3s250e-cp132-4 -cm area
+-detail -ir off -pr off -c 100 -o pong_top_map.ncd pong_top.ngd pong_top.pcf 
+Target Device  : xc3s250e
+Target Package : cp132
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.55 $
+Mapped Date    : Wed Dec 18 14:15:05 2013
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   10
+Logic Utilization:
+  Number of Slice Flip Flops:           481 out of   4,896    9%
+  Number of 4 input LUTs:             2,467 out of   4,896   50%
+Logic Distribution:
+  Number of occupied Slices:          1,451 out of   2,448   59%
+    Number of Slices containing only related logic:   1,451 out of   1,451 100%
+    Number of Slices containing unrelated logic:          0 out of   1,451   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       2,687 out of   4,896   54%
+    Number used as logic:             2,467
+    Number used as a route-thru:        220
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 24 out of      92   26%
+  Number of RAMB16s:                      4 out of      12   33%
+  Number of BUFGMUXs:                     1 out of      24    4%
+
+Average Fanout of Non-Clock Nets:                2.98
+
+Peak Memory Usage:  388 MB
+Total REAL time to MAP completion:  57 secs 
+Total CPU time to MAP completion:   51 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Blue<1> is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Blue<2> is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Green<0>
+   is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Green<1>
+   is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Green<2>
+   is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp hsync.PAD
+   is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Red<0> is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Red<1> is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp Red<2> is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp vsync.PAD
+   is set but the tri state is not configured. 
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   8 block(s) optimized away
+ 333 Block(s) redundant
+
+Section 5 - Removed Logic
+-------------------------
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+MUXCY 		ball/Madd_bounds2.bottom_addsub0000_cy<0>
+MUXCY 		ball/Madd_bounds2.right_addsub0000_cy<2>
+MUXCY 		ball/Madd_bounds7.bottom_addsub0000_cy<0>
+MUXCY 		ball/Madd_bounds7.right_addsub0000_cy<5>
+MUXCY 		ball/Maddsub_temp_ballObj.pos.x_addsub0000_cy<0>
+MUXCY 		ball/Maddsub_temp_ballObj.pos.x_addsub0001_cy<0>
+
+Redundant Block(s):
+TYPE 		BLOCK
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0000<8>1/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0000<4>1/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0000<1>1/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_or000030/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<11>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<10>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<7>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<9>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<6>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<3>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<5>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<2>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<8>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<1>1/LUT3_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_mux0001<4>1/LUT3_L_BUF
+LOCALBUF 		ball/scoreReg_left_cmp_gt00001_SW0/LUT4_D_BUF
+LOCALBUF 		ball/scoreReg_left_cmp_gt00001/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and00004/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and00006/LUT2_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00006/LUT2_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and00004/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and00006/LUT2_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012/LUT4_D_BUF
+LOCALBUF 		ball/ballObj_pos_y_and00004/LUT4_D_BUF
+LOCALBUF 		ball/ballObj_pos_y_and00009/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW1/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW3/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW5/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW7/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW9/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW11/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW13/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW15/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW17/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW0/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW4/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW6/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW8/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW10/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW12/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW14/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW16/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW2/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW4/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW6/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW8/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW10/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW12/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW0/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW1/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW2/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW3/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW4/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW5/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW6/LUT4_L_BUF
+LOCALBUF 		ball/scoreReg_left_cmp_gt00001_SW1/LUT2_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW19/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW25/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_y_and000012_SW27/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW18/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW28/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW23/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW24/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW7/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW8/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW9/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW10/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and00006_SW0/LUT2_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW35/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW37/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and000012_SW39/LUT3_D_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW26/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_pos_x_and000012_SW28/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW11/LUT4_L_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_SW12/LUT4_L_BUF
+LOCALBUF 		ball/Mcompar_temp_ballObj.pos.y_cmp_gt0000_cy<3>/LUT4_D_BUF
+LOCALBUF 		ball/ballObj_pos_y_and00004_1/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_1/LUT4_D_BUF
+LOCALBUF 		ball/temp_ballObj_velocity_x_and00004_2/LUT4_D_BUF
+LUT1 		Madd_nextVCount_addsub0000_cy<1>_rt
+LUT1 		Mcount_vCount_cy<1>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<2>_rt
+LUT1 		Mcount_vCount_cy<2>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<3>_rt
+LUT1 		Mcount_vCount_cy<3>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<4>_rt
+LUT1 		Mcount_vCount_cy<4>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<5>_rt
+LUT1 		Mcount_vCount_cy<5>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<6>_rt
+LUT1 		Mcount_vCount_cy<6>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<7>_rt
+LUT1 		Mcount_vCount_cy<7>_rt
+LUT1 		Madd_nextVCount_addsub0000_cy<8>_rt
+LUT1 		Mcount_vCount_cy<8>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<1>_rt
+LUT1 		Mcount_hCount_cy<1>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<2>_rt
+LUT1 		Mcount_hCount_cy<2>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<3>_rt
+LUT1 		Mcount_hCount_cy<3>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<4>_rt
+LUT1 		Mcount_hCount_cy<4>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<5>_rt
+LUT1 		Mcount_hCount_cy<5>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<6>_rt
+LUT1 		Mcount_hCount_cy<6>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<7>_rt
+LUT1 		Mcount_hCount_cy<7>_rt
+LUT1 		Madd_nextHCount_addsub0000_cy<8>_rt
+LUT1 		Mcount_hCount_cy<8>_rt
+LUT1 		paddleLeft/Mcompar_drawElement.pixelOn_0_cmp_gt0000_cy<3>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inX_cmp_lt0000_cy<4>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<4>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inX_cmp_lt0000_cy<4>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<4>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<4>_rt
+LUT1 		paddleLeft/Mcompar_drawElement.pixelOn_0_cmp_gt0000_cy<2>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<3>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<3>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<3>_rt
+LUT1 		paddleLeft/Mcompar_drawElement.pixelOn_0_cmp_gt0000_cy<1>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<2>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<2>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<2>_rt
+LUT1 		paddleLeft/Msub_bounds.bottom_sub0000_cy<0>_rt
+LUT1 		ball/Msub_temp_ballObj.pos.y_addsub0001_cy<0>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<0>_rt
+XORCY 		ball/Madd_bounds2.bottom_addsub0000_xor<0>
+LUT1 		ball/Msub_bounds2.bottom_sub0000_cy<0>_rt
+LUT1 		paddleLeft/Mcompar_paddleObj.pos.y_cmp_ge0001_cy<10>_rt
+LUT1 		paddleLeft/Mcompar_paddleObj.pos.y_cmp_ge0001_cy<2>_rt
+LUT1 		paddleLeft/Mcompar_paddleObj.pos.y_cmp_ge0001_cy<0>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<12>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<12>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_xor<13>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_xor<13>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<11>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<11>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<10>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<10>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<9>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<8>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<8>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<7>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<7>_rt
+LUT1 		paddleLeft/Madd_bounds.bottom_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<6>_rt
+LUT1 		paddleRight/Msub_bounds.bottom_sub0000_cy<0>_rt
+LUT1 		ball/Msub_ballObj.pos.y_addsub0001_cy<0>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<0>_rt
+XORCY 		ball/Madd_bounds7.bottom_addsub0000_xor<0>
+LUT1 		ball/Msub_bounds7.bottom_sub0000_cy<0>_rt
+LUT1 		paddleRight/Mcompar_paddleObj.pos.y_cmp_ge0001_cy<10>_rt
+LUT1 		paddleRight/Mcompar_paddleObj.pos.y_cmp_ge0001_cy<2>_rt
+LUT1 		paddleRight/Mcompar_paddleObj.pos.y_cmp_ge0001_cy<0>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<12>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<12>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_xor<13>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_xor<13>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<11>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<11>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<10>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<10>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<9>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<8>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<8>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<7>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<7>_rt
+LUT1 		paddleRight/Madd_bounds.bottom_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<6>_rt
+LUT1 		ball/Msub_bounds3.right_sub0000_cy<0>_rt
+LUT1 		ball/Msub__n0016.bottom_cy<0>_rt
+LUT1 		ball/Msub_rect1_bounds_sub0000_Madd_cy<0>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<12>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_xor<13>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<11>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<10>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<8>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<7>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<5>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<4>_rt
+LUT1 		ball/Madd_bounds3.right_addsub0000_cy<1>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<12>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_xor<13>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<11>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<10>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<8>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<7>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<5>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<4>_rt
+LUT1 		ball/Madd_n0016.bottom_addsub0000_cy<1>_rt
+LUT1 		ball/Msub_bounds.right_sub0000_cy<0>_rt
+LUT1 		ball/Msub_bounds8.right_sub0000_cy<0>_rt
+LUT1 		ball/Msub__n0021.bottom_cy<0>_rt
+LUT1 		ball/Msub_bounds.bottom_sub0000_cy<0>_rt
+LUT1 		ball/Msub_bounds13.right_sub0000_cy<0>_rt
+LUT1 		ball/Msub_ballObj.pos.y_addsub0001_cy<3>_rt
+LUT1 		ball/Msub_ballObj.pos.y_addsub0001_cy<2>_rt
+LUT1 		ball/Mcompar_scoreReg.left_cmp_ge0000_cy<10>_rt
+LUT1 		ball/Mcompar_scoreReg.left_cmp_ge0000_cy<2>_rt
+LUT1 		ball/Mcompar_scoreReg.left_cmp_ge0000_cy<0>_rt
+LUT1 		ball/Msub_temp_ballObj.pos.y_addsub0001_cy<3>_rt
+LUT1 		ball/Msub_temp_ballObj.pos.y_addsub0001_cy<2>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<12>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_xor<13>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<11>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<10>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<8>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<7>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<5>_rt
+LUT1 		ball/Madd_bounds.right_addsub0000_cy<1>_rt
+LUT1 		ball/Madd_bounds2.right_addsub0000_cy<4>_rt
+LUT1 		ball/Madd_bounds2.right_addsub0000_cy<3>_rt
+LUT1 		ball/Madd_bounds2.right_addsub0000_cy<2>_rt
+LUT1 		ball/Madd_bounds7.right_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_bounds7.right_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_bounds7.right_addsub0000_cy<5>_rt
+LUT1 		paddleRight/Madd_n0001.right_addsub0000_xor<9>_rt
+LUT1 		ball/Msub_temp_ballObj.pos.x_addsub0002_xor<2>_rt
+LUT1 		ball/Madd_bounds2.right_addsub0000_xor<2>_rt
+LUT1 		ball/Madd_bounds2.right_addsub0000_xor<1>_rt
+LUT1 		ball/Madd_bounds7.right_addsub0000_xor<9>_rt
+LUT1 		ball/Madd_bounds7.right_addsub0000_xor<5>_rt
+LUT1 		ball/Madd_bounds7.right_addsub0000_xor<3>_rt
+LUT1 		paddleLeft/Mcompar_drawElement.pixelOn_0_cmp_gt0000_cy<10>_rt
+LUT1 		paddleLeft/Mcompar_drawElement.pixelOn_0_cmp_gt0000_cy<9>_rt
+XORCY 		paddleRight/Madd_n0001.right_addsub0000_xor<3>
+XORCY 		paddleRight/Madd_n0001.right_addsub0000_xor<6>
+LUT1 		ball/Madd_bounds7.bottom_addsub0000_cy<1>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<12>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_xor<13>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<11>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<10>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<9>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<8>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<7>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<6>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<5>_rt
+LUT1 		ball/Madd_bounds.bottom_addsub0000_cy<1>_rt
+LUT1 		ball/Madd_bounds2.bottom_addsub0000_cy<1>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inX_cmp_lt0000_cy<9>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<9>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<9>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<9>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inY_cmp_lt0000_cy<6>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inY_cmp_lt0000_cy<6>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inY_cmp_lt0000_cy<1>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inY_cmp_ge0000_cy<1>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inY_cmp_lt0000_cy<1>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inY_cmp_ge0000_cy<1>_rt
+LUT1 		scoreRight_textDrawElement/Msub__sub0000_cy<8>_rt
+LUT1 		scoreRight_textDrawElement/Msub__sub0000_cy<7>_rt
+LUT1 		scoreRight_textDrawElement/Msub__sub0000_cy<6>_rt
+LUT1 		scoreRight_textDrawElement/Msub__sub0000_cy<5>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inX_cmp_ge0000_cy<8>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<8>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<8>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<8>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inX_cmp_ge0000_cy<7>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<7>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inX_cmp_lt0000_cy<7>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inX_cmp_ge0000_cy<7>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<7>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<7>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inX_cmp_ge0000_cy<6>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<6>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inX_cmp_lt0000_cy<6>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<6>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<6>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inX_cmp_ge0000_cy<5>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<5>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inX_cmp_ge0000_cy<5>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<5>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<5>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inY_cmp_ge0000_cy<5>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inY_cmp_ge0000_cy<5>_rt
+LUT1 		scoreRight_textDrawElement/Mcompar_inY_cmp_ge0000_cy<4>_rt
+LUT1 		scoreLeft_textDrawElement/Mcompar_inY_cmp_ge0000_cy<4>_rt
+LUT1 		scoreRight_textDrawElement/Madd_add0001_addsub0000_cy<1>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_add0001_addsub0000_cy<1>_rt
+LUT1 		hadURL_textDrawElement/Madd_add0001_addsub0000_cy<1>_rt
+LUT1 		scoreLeft_textDrawElement/Msub__sub0000_cy<7>_rt
+LUT1 		scoreLeft_textDrawElement/Msub__sub0000_cy<5>_rt
+LUT1 		Madd_nextVCount_addsub0000_xor<9>_rt
+LUT1 		Mcount_vCount_xor<9>_rt
+LUT1 		Madd_nextHCount_addsub0000_xor<9>_rt
+LUT1 		Mcount_hCount_xor<9>_rt
+LUT1 		ball/Madd_bounds3.left_add0001_xor<12>_rt
+LUT1 		ball/Madd_temp_ballObj.velocity.x_addsub0000_cy<0>_rt
+LUT1 		ball/Madd_temp_ballObj.velocity.y_addsub0000_cy<0>_rt
+LUT1 		scoreRight_textDrawElement/Madd_mux0000_addsub0000_cy<0>_rt
+LUT1 		scoreRight_textDrawElement/Madd__add0000_cy<0>_rt
+LUT1 		scoreLeft_textDrawElement/Madd_mux0000_addsub0000_cy<0>_rt
+LUT1 		scoreLeft_textDrawElement/Madd__add0000_cy<0>_rt
+LUT1 		hadURL_textDrawElement/Madd_mux0000_addsub0000_cy<0>_rt
+LUT1 		hadURL_textDrawElement/Madd__add0000_cy<0>_rt
+INV 		ball/Mcompar_ballObj.pos.y_cmp_gt0000_cy<3>_inv_INV_0
+INV 		ball/Mcompar_temp_ballObj.pos.x_cmp_gt0001_cy<3>_inv_INV_0
+INV 		ball/Mcompar_temp_ballObj.pos.x_cmp_gt0000_cy<3>_inv_INV_0
+INV 		scoreRight_textDrawElement/reset_inv1_INV_0
+INV 		divide_by_2_not00011_INV_0
+INV 		scoreRight_textDrawElement/dataSetUp_inv1_INV_0
+INV 		scoreLeft_textDrawElement/dataSetUp_inv1_INV_0
+INV 		hadURL_textDrawElement/dataSetUp_inv1_INV_0
+MUXCY 		paddleRight/Mcompar_drawElement.pixelOn_0_cmp_lt0000_cy<10>
+MUXCY 		paddleRight/Mcompar_drawElement.pixelOn_0_cmp_lt0000_cy<11>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inX_cmp_ge0000_cy<10>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inX_cmp_ge0000_cy<11>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inX_cmp_lt0000_cy<10>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inX_cmp_lt0000_cy<11>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inY_cmp_ge0000_cy<10>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inY_cmp_ge0000_cy<11>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inY_cmp_lt0000_cy<10>
+MUXCY 		scoreLeft_textDrawElement/Mcompar_inY_cmp_lt0000_cy<11>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inX_cmp_ge0000_cy<10>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inX_cmp_ge0000_cy<11>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inX_cmp_lt0000_cy<10>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inX_cmp_lt0000_cy<11>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inY_cmp_ge0000_cy<10>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inY_cmp_ge0000_cy<11>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inY_cmp_lt0000_cy<10>
+MUXCY 		scoreRight_textDrawElement/Mcompar_inY_cmp_lt0000_cy<11>
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Blue<1>                            | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Blue<2>                            | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Green<0>                           | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Green<1>                           | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Green<2>                           | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Led<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<4>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<5>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Led<7>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| Red<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Red<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| Red<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| btn<0>                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| btn<1>                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| btn<2>                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| btn<3>                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| clk                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| hsync                              | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
+| reset                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| vsync                              | IOB              | OUTPUT    | LVCMOS25             |       | 2        | SLOW |              | PULLUP   | 0 / 0    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+BUFGMUX "clk_BUFGP/BUFG":
+DISABLE_ATTR:LOW
+
+
+
+RAMB16 "fontLibraryArbiter/blockRam/Mram_ROM":
+INITP_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_00 = 000000007E818199BD8181A5817E000000000000000000000000000000000000
+INIT_01 = 0000000010387CFEFEFEFE6C00000000000000007EFFFFE7C3FFFFDBFF7E0000
+INIT_02 = 000000003C1818E7E7E73C3C18000000000000000010387CFE7C381000000000
+INIT_03 = 000000000000183C3C18000000000000000000003C18187EFFFF7E3C18000000
+INIT_04 = 00000000003C664242663C0000000000FFFFFFFFFFFFE7C3C3E7FFFFFFFFFFFF
+INIT_05 = 0000000078CCCCCCCC78321A0E1E0000FFFFFFFFFFC399BDBD99C3FFFFFFFFFF
+INIT_06 = 00000000E0F070303030303F333F00000000000018187E183C666666663C0000
+INIT_07 = 000000001818DB3CE73CDB1818000000000000C0E6E767636363637F637F0000
+INIT_08 = 0000000002060E1E3EFE3E1E0E0602000000000080C0E0F0F8FEF8F0E0C08000
+INIT_09 = 000000006666006666666666666600000000000000183C7E1818187E3C180000
+INIT_0a = 0000007CC60C386CC6C66C3860C67C00000000001B1B1B1B1B7BDBDBDB7F0000
+INIT_0b = 000000307E183C7E1818187E3C18000000000000FEFEFEFE0000000000000000
+INIT_0c = 00000000183C7E18181818181818000000000000181818181818187E3C180000
+INIT_0d = 0000000000003060FE60300000000000000000000000180CFE0C180000000000
+INIT_0e = 0000000000002466FF66240000000000000000000000FEC0C0C0000000000000
+INIT_0f = 00000000001038387C7CFEFE000000000000000000FEFE7C7C38381000000000
+INIT_10 = 000000001818001818183C3C3C18000000000000000000000000000000000000
+INIT_11 = 000000006C6CFE6C6C6CFE6C6C00000000000000000000000000002466666600
+INIT_12 = 0000000086C66030180CC6C200000000000018187CC68606067CC0C2C67C1818
+INIT_13 = 000000000000000000000060303030000000000076CCCCCCDC76386C6C380000
+INIT_14 = 0000000030180C0C0C0C0C0C18300000000000000C18303030303030180C0000
+INIT_15 = 00000000000018187E18180000000000000000000000663CFF3C660000000000
+INIT_16 = 00000000000000007E0000000000000000000030181818000000000000000000
+INIT_17 = 0000000080C06030180C06020000000000000000181800000000000000000000
+INIT_18 = 000000007E1818181818187838180000000000007CC6C6E6F6DECEC6C67C0000
+INIT_19 = 000000007CC60606063C0606C67C000000000000FEC6C06030180C06C67C0000
+INIT_1a = 000000007CC6060606FCC0C0C0FE0000000000001E0C0C0CFECC6C3C1C0C0000
+INIT_1b = 0000000030303030180C0606C6FE0000000000007CC6C6C6C6FCC0C060380000
+INIT_1c = 00000000780C0606067EC6C6C67C0000000000007CC6C6C6C67CC6C6C67C0000
+INIT_1d = 0000000030181800000018180000000000000000001818000000181800000000
+INIT_1e = 000000000000007E00007E000000000000000000060C18306030180C06000000
+INIT_1f = 000000001818001818180CC6C67C0000000000006030180C060C183060000000
+INIT_20 = 00000000C6C6C6C6FEC6C66C38100000000000007CC0DCDEDEDEC6C6C67C0000
+INIT_21 = 000000003C66C2C0C0C0C0C2663C000000000000FC666666667C666666FC0000
+INIT_22 = 00000000FE6662606878686266FE000000000000F86C6666666666666CF80000
+INIT_23 = 000000003A66C6C6DEC0C0C2663C000000000000F06060606878686266FE0000
+INIT_24 = 000000003C18181818181818183C000000000000C6C6C6C6C6FEC6C6C6C60000
+INIT_25 = 00000000E666666C78786C6666E600000000000078CCCCCC0C0C0C0C0C1E0000
+INIT_26 = 00000000C3C3C3C3C3DBFFFFE7C3000000000000FE6662606060606060F00000
+INIT_27 = 000000007CC6C6C6C6C6C6C6C67C000000000000C6C6C6C6CEDEFEF6E6C60000
+INIT_28 = 00000E0C7CDED6C6C6C6C6C6C67C000000000000F0606060607C666666FC0000
+INIT_29 = 000000007CC6C6060C3860C6C67C000000000000E66666666C7C666666FC0000
+INIT_2a = 000000007CC6C6C6C6C6C6C6C6C60000000000003C18181818181899DBFF0000
+INIT_2b = 000000006666FFDBDBC3C3C3C3C3000000000000183C66C3C3C3C3C3C3C30000
+INIT_2c = 000000003C181818183C66C3C3C3000000000000C3C3663C18183C66C3C30000
+INIT_2d = 000000003C30303030303030303C000000000000FFC3C16030180C86C3FF0000
+INIT_2e = 000000003C0C0C0C0C0C0C0C0C3C00000000000002060E1C3870E0C080000000
+INIT_2f = 0000FF00000000000000000000000000000000000000000000000000C66C3810
+INIT_30 = 0000000076CCCCCC7C0C78000000000000000000000000000000000000183030
+INIT_31 = 000000007CC6C0C0C0C67C0000000000000000007C666666666C786060E00000
+INIT_32 = 000000007CC6C0C0FEC67C00000000000000000076CCCCCCCC6C3C0C0C1C0000
+INIT_33 = 0078CC0C7CCCCCCCCCCC76000000000000000000F060606060F060646C380000
+INIT_34 = 000000003C181818181838001818000000000000E666666666766C6060E00000
+INIT_35 = 00000000E6666C78786C666060E00000003C66660606060606060E0006060000
+INIT_36 = 00000000DBDBDBDBDBFFE60000000000000000003C1818181818181818380000
+INIT_37 = 000000007CC6C6C6C6C67C000000000000000000666666666666DC0000000000
+INIT_38 = 001E0C0C7CCCCCCCCCCC76000000000000F060607C6666666666DC0000000000
+INIT_39 = 000000007CC60C3860C67C000000000000000000F06060606676DC0000000000
+INIT_3a = 0000000076CCCCCCCCCCCC0000000000000000001C3630303030FC3030100000
+INIT_3b = 0000000066FFDBDBC3C3C3000000000000000000183C66C3C3C3C30000000000
+INIT_3c = 00F80C067EC6C6C6C6C6C6000000000000000000C3663C183C66C30000000000
+INIT_3d = 000000000E18181818701818180E000000000000FEC6603018CCFE0000000000
+INIT_3e = 0000000070181818180E18181870000000000000181818181800181818180000
+INIT_3f = 0000000000FEC6C6C66C381000000000000000000000000000000000DC760000
+PORTA_ATTR:2048X9
+WRITEMODEA:READ_FIRST
+INIT_A = 000
+SRVAL_A = 000
+
+
+RAMB16 "hadURL_textDrawElement/blockRam/Mram_RAM":
+INITP_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_08 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_09 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_10 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_11 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_12 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_13 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_14 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_15 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_16 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_17 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_18 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_19 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_20 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_21 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_22 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_23 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_24 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_25 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_26 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_27 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_28 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_29 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_30 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_31 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_32 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_33 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_34 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_35 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_36 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_37 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_38 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_39 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3f = 0000000000000000000000000000000000000000000000000000000000000000
+PORTA_ATTR:2048X9
+WRITEMODEA:READ_FIRST
+INIT_A = 000
+SRVAL_A = 000
+
+
+RAMB16 "scoreLeft_textDrawElement/blockRam/Mram_RAM":
+INITP_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_08 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_09 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_10 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_11 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_12 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_13 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_14 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_15 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_16 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_17 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_18 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_19 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_20 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_21 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_22 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_23 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_24 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_25 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_26 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_27 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_28 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_29 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_30 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_31 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_32 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_33 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_34 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_35 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_36 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_37 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_38 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_39 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3f = 0000000000000000000000000000000000000000000000000000000000000000
+PORTA_ATTR:2048X9
+WRITEMODEA:READ_FIRST
+INIT_A = 000
+SRVAL_A = 000
+
+
+RAMB16 "scoreRight_textDrawElement/blockRam/Mram_RAM":
+INITP_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INITP_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_00 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_01 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_02 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_03 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_04 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_05 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_06 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_07 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_08 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_09 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_0f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_10 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_11 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_12 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_13 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_14 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_15 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_16 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_17 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_18 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_19 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_1f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_20 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_21 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_22 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_23 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_24 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_25 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_26 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_27 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_28 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_29 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_2f = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_30 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_31 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_32 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_33 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_34 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_35 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_36 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_37 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_38 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_39 = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3a = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3b = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3c = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3d = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3e = 0000000000000000000000000000000000000000000000000000000000000000
+INIT_3f = 0000000000000000000000000000000000000000000000000000000000000000
+PORTA_ATTR:2048X9
+WRITEMODEA:READ_FIRST
+INIT_A = 000
+SRVAL_A = 000
+
+
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Module                      | Partition | Slices        | Slice Reg     | LUTs          | LUTRAM        | BRAM      | MULT18X18 | BUFG  | DCM   | Full Hierarchical Name                        |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pong_top/                   |           | 79/1458       | 54/481        | 129/2626      | 0/0           | 0/4       | 0/0       | 1/1   | 0/0   | pong_top                                      |
+| +ball                       |           | 756/756       | 122/122       | 1402/1402     | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | pong_top/ball                                 |
+| +fontLibraryArbiter         |           | 34/34         | 44/44         | 38/38         | 0/0           | 0/1       | 0/0       | 0/0   | 0/0   | pong_top/fontLibraryArbiter                   |
+| ++blockRam                  |           | 0/0           | 0/0           | 0/0           | 0/0           | 1/1       | 0/0       | 0/0   | 0/0   | pong_top/fontLibraryArbiter/blockRam          |
+| +hadURL_textDrawElement     |           | 142/142       | 54/54         | 257/257       | 0/0           | 0/1       | 0/0       | 0/0   | 0/0   | pong_top/hadURL_textDrawElement               |
+| ++blockRam                  |           | 0/0           | 0/0           | 0/0           | 0/0           | 1/1       | 0/0       | 0/0   | 0/0   | pong_top/hadURL_textDrawElement/blockRam      |
+| +paddleLeft                 |           | 100/100       | 60/60         | 189/189       | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | pong_top/paddleLeft                           |
+| +paddleRight                |           | 112/112       | 59/59         | 203/203       | 0/0           | 0/0       | 0/0       | 0/0   | 0/0   | pong_top/paddleRight                          |
+| +scoreLeft_textDrawElement  |           | 116/116       | 44/44         | 202/202       | 0/0           | 0/1       | 0/0       | 0/0   | 0/0   | pong_top/scoreLeft_textDrawElement            |
+| ++blockRam                  |           | 0/0           | 0/0           | 0/0           | 0/0           | 1/1       | 0/0       | 0/0   | 0/0   | pong_top/scoreLeft_textDrawElement/blockRam   |
+| +scoreRight_textDrawElement |           | 119/119       | 44/44         | 206/206       | 0/0           | 0/1       | 0/0       | 0/0   | 0/0   | pong_top/scoreRight_textDrawElement           |
+| ++blockRam                  |           | 0/0           | 0/0           | 0/0           | 0/0           | 1/1       | 0/0       | 0/0   | 0/0   | pong_top/scoreRight_textDrawElement/blockRam  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Slices can be packed with basic elements from multiple hierarchies.
+  Therefore, a slice will be counted in every hierarchical module
+  that each of its packed basic elements belong to.
+** For each column, there are two numbers reported <A>/<B>.
+   <A> is the number of elements that belong to that specific hierarchical module.
+   <B> is the total number of elements from that hierarchical module and any lower level
+   hierarchical modules below.
+*** The LUTRAM column counts all LUTs used as memory including RAM, ROM, and shift registers.
