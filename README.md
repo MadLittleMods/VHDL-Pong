@@ -21,7 +21,7 @@ Watch [a video of this project](https://www.youtube.com/watch?v=H2etR0ogEfI) in 
 
 Action | Control
 ------ | -----------
-Player Left/1 Paddle movement | btn2 and btn 3
+Player Left/1 Paddle movement | btn2 and btn3
 Player Right/2 Paddle movement | btn0 and btn1
 Reset | switch0
 Player Left/1 AI Enable | switch7
