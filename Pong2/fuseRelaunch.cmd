@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -o "D:/Libraries/EE/FPGA/Basys 2/Pong2/tb_pong1_isim_beh.exe" -prj "D:/Libraries/EE/FPGA/Basys 2/Pong2/tb_pong1_beh.prj" "work.tb_pong1" 

@@ -44,6 +44,7 @@ entity ball is
 		clk: in std_logic;
 		hCount: in integer range 0 to 1023;
 		vCount: in integer range 0 to 1023;
+		colObject: out type_collisionRect := init_type_collisionRect;
 		colObjectArray: in type_collisionRectArray(0 to numCollisionObjects-1);
 		
 		drawElement: out type_drawElement := init_type_drawElement;
@@ -60,6 +61,8 @@ architecture Behavioral of ball is
 	-- Hackaday mode
 	signal had_mode: boolean := true;
 begin
+	
+	colObject <= ballObj;
 	
 	
 	anim: process(clk)
@@ -86,8 +89,8 @@ begin
 				ballObj.pos.y <= SCREEN_RESY/2 - ballRadius;
 				ballObj.width <= ballRadius * 2;
 				ballObj.height <= ballRadius * 2;
-				ballObj.velocity.x <= -2;
-				ballObj.velocity.y <= 1;
+				ballObj.velocity.x <= -3;
+				ballObj.velocity.y <= 2;
 				
 				scoreReg := init_type_score;
 				had_mode <= false;
@@ -115,7 +118,9 @@ begin
 					end if;
 					
 					-- For testing purposes, just make it always had mode
-					temp_had_mode := true;
+					--temp_had_mode := true;
+					
+					
 					
 					-- We create a temp variable copy so that we can do some
 					-- stuff that needs to updated right away
@@ -125,6 +130,9 @@ begin
 					if temp_had_mode then
 						temp_ballObj.width := 13;
 						temp_ballObj.height := 13;
+					else
+						temp_ballObj.width := ballRadius * 2;
+						temp_ballObj.height := ballRadius * 2;
 					end if;
 					
 					-- Move the temp to the real
@@ -195,6 +203,7 @@ begin
 							-- Reflect off the object
 							temp_ballObj.velocity.x := temp_ballObj.velocity.x * (-1);
 							
+							
 						end if;
 					end loop;
 				
@@ -224,8 +233,10 @@ begin
 								temp_ballObj.pos.y := currColObjectBounds.bottom+1;
 							end if;
 							
+							
 							-- Reflect off the object
-							temp_ballObj.velocity.y := temp_ballObj.velocity.y * (-1);
+							-- and Add glancing blow velocity from the paddle
+							temp_ballObj.velocity.y := (temp_ballObj.velocity.y * (-1)) + colObjectArray(i).velocity.y;
 						end if;
 					end loop;
 				

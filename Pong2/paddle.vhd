@@ -46,7 +46,7 @@ entity paddle is
 		clk: in std_logic;
 		hCount: in integer range 0 to 1023;
 		vCount: in integer range 0 to 1023;
-		colObject: out type_collisionRect;
+		colObject: out type_collisionRect := init_type_collisionRect;
 		
 		controls: in type_controls;
 		drawElement: out type_drawElement := init_type_drawElement

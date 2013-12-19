@@ -47,22 +47,26 @@ ARCHITECTURE behavior OF tb_pong1 IS
  
     COMPONENT pong_top
     PORT(
-         clk : IN  std_logic;
-         reset : IN  std_logic;
-         btn : IN  std_logic_vector(3 downto 0);
-         Led : OUT  std_logic_vector(7 downto 0);
-         hsync : OUT  std_logic;
-         vsync : OUT  std_logic;
-         Red : OUT  std_logic_vector(2 downto 0);
-         Green : OUT  std_logic_vector(2 downto 0);
-         Blue : OUT  std_logic_vector(2 downto 1)
-        );
+        clk: in std_logic;
+		sw: in std_logic_vector(7 downto 0); -- sw0 is reset
+		btn: in std_logic_vector(3 downto 0);
+		Led: out std_logic_vector(7 downto 0);
+		
+		hsync: out std_logic;
+		vsync: out std_logic;
+		Red: out std_logic_vector(2 downto 0);
+		Green: out std_logic_vector(2 downto 0);
+		Blue: out std_logic_vector(2 downto 1);
+		
+		seg: out std_logic_vector(6 downto 0);
+		an: out std_logic_vector(3 downto 0)
+	);
     END COMPONENT;
     
 
    --Inputs
    signal clk : std_logic := '0';
-   signal reset : std_logic := '0';
+   signal sw : std_logic_vector(7 downto 0) := (others => '0');
    signal btn : std_logic_vector(3 downto 0) := (others => '0');
 
  	--Outputs
@@ -72,6 +76,8 @@ ARCHITECTURE behavior OF tb_pong1 IS
    signal Red : std_logic_vector(2 downto 0);
    signal Green : std_logic_vector(2 downto 0);
    signal Blue : std_logic_vector(2 downto 1);
+   signal seg : std_logic_vector(6 downto 0);
+   signal an : std_logic_vector(3 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 20 ns;
@@ -81,14 +87,16 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: pong_top PORT MAP (
           clk => clk,
-          reset => reset,
+          sw => sw,
           btn => btn,
           Led => Led,
           hsync => hsync,
           vsync => vsync,
           Red => Red,
           Green => Green,
-          Blue => Blue
+          Blue => Blue,
+		  seg => seg,
+		  an => an
         );
 
    -- Clock process definitions
@@ -110,9 +118,9 @@ BEGIN
 		wait for clk_period*10;
 
 		-- insert stimulus here 
-		reset <= '1';
+		sw(0) <= '1';
 		wait for 100 ns;
-		reset <= '0';
+		sw(0) <= '0';
 
 		wait;
 	end process;

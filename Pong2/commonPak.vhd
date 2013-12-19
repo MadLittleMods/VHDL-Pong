@@ -9,6 +9,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.ALL;
 
 package commonPak is
 
@@ -85,6 +86,7 @@ package commonPak is
 	function CheckCollisionX (rect1, rect2 : type_collisionRect) return boolean;
 	function CheckCollisionY (rect1, rect2 : type_collisionRect) return boolean;
 	
+	function int_bcd2(val: integer) return std_logic_vector;
 	
 end commonPak;
 
@@ -129,5 +131,31 @@ package body commonPak is
 		return (rect1_bounds.top >= rect2_bounds.top and rect1_bounds.top <= rect2_bounds.bottom)
 			or (rect1_bounds.bottom >= rect2_bounds.top and rect1_bounds.bottom <= rect2_bounds.bottom);
 	end CheckCollisionY;
+ 
+ 
+	function int_bcd2(val: integer) return std_logic_vector is
+		variable bcd : std_logic_vector(7 downto 0) := (others => '0');
+		variable bint : std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(val, 8));
+	begin
+		for i in 0 to 7 loop 
+			bcd(7 downto 1) := bcd(6 downto 0);  -- shifting left 1
+			bcd(0) := bint(7);
+			
+			bint(7 downto 0) := bint(6 downto 0) & '0'; -- shifting left 1
+
+
+			if(i < 7 and bcd(3 downto 0) > "0100") then --add 3 if BCD digit is greater than 4.
+				bcd(3 downto 0) := std_logic_vector(unsigned(bcd(3 downto 0)) + 3);
+			end if;
+
+			if(i < 7 and bcd(7 downto 4) > "0100") then --add 3 if BCD digit is greater than 4.
+				bcd(7 downto 4) := std_logic_vector(unsigned(bcd(7 downto 4)) + 3);
+			end if;
+
+		end loop;
+		
+		return bcd;
+		
+	end int_bcd2;
  
 end commonPak;
