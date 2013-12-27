@@ -7,6 +7,8 @@ Read more about it in this [blog post](http://ericeastwood.com/blog/9/pong-on-a-
 
 Watch [a video of this project](https://www.youtube.com/watch?v=H2etR0ogEfI) in action on youtube.
 
+[As seen on Hackday.com](http://hackaday.com/2013/12/26/fubarino-contest-fpga-pong/)
+
 ![Pong game screenshot](http://i.imgur.com/6vYlZQA.png)
 
 ## Features:
