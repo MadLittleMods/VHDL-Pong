@@ -1,20 +1,9 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Original Author: Eric Eastwood (http://ericeastwood.com/)
+-- Original Source: https://github.com/MadLittleMods/FP-V-GA-Text
 -- 
 -- Create Date:    11:42:49 11/26/2013 
--- Design Name: 
 -- Module Name:    textLineRAM - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;

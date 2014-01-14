@@ -1,20 +1,9 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Original Author: Eric Eastwood (http://ericeastwood.com/)
+-- Original Source: https://github.com/MadLittleMods/VHDL-Pong
 -- 
 -- Create Date:    14:37:47 12/12/2013 
--- Design Name: 
 -- Module Name:    ball - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
